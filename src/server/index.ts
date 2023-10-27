@@ -8,6 +8,7 @@ import { inject, injectable, singleton } from 'tsyringe';
 import { middlewares } from '@middlewares/express/index';
 import { LoggerAdapter } from '@adapters/logger.adapter';
 import { IApolloContext } from '@types-local/ApolloContext.type';
+import { PrimaryDBAdapter } from '@adapters/primaryDB.adapter';
 
 @singleton()
 @injectable()
@@ -20,13 +21,17 @@ export class Server {
     private serverConfig!: Awaited<ReturnType<typeof generateServerConfig>>['serverConfig'];
     
 
-    constructor(@inject(LoggerAdapter) public _scream: LoggerAdapter) {
+    constructor(
+        @inject(LoggerAdapter) public _scream: LoggerAdapter,
+        @inject(PrimaryDBAdapter) private _primaryDb: PrimaryDBAdapter
+    ) {
         this.app = express();
         this.httpServer = http.createServer(this.app);
     }
 
     async initialize(): Promise<void> {
         if (this.isInitialized) throw new Error('server already initialized');
+        await this.connectToDatabases();
         const { serverConfig } = await generateServerConfig();
         this.serverConfig = serverConfig;
         this.apolloServer = new ApolloServer(this.serverConfig);
@@ -45,6 +50,9 @@ export class Server {
         });
     }
 
+    private async connectToDatabases() {
+        await this._primaryDb.connect();
+    }
     async start() {
         await this.initialize();
         await this.apolloServer.start();
