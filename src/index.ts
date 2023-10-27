@@ -3,7 +3,7 @@ import '@bin/config';
 import { LoggerAdapter } from '@adapters/logger.adapter';
 import { EnvironmentUtil } from '@utils/EnvironmentUtil';
 import { container } from 'tsyringe';
-import { Server } from './server';
+import { Server } from '@server/index';
 
 (function main() {
     // write your code here

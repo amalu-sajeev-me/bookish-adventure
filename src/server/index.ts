@@ -5,9 +5,9 @@ import { expressMiddleware } from '@apollo/server/express4';
 
 import { generateServerConfig } from "./serverConfig";
 import { inject, injectable, singleton } from 'tsyringe';
-import { middlewares } from '../middlewares/express';
+import { middlewares } from '@middlewares/express/index';
 import { LoggerAdapter } from '@adapters/logger.adapter';
-import { IApolloContext } from '../types/ApolloContext.type';
+import { IApolloContext } from '@types-local/ApolloContext.type';
 
 @singleton()
 @injectable()

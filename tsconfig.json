@@ -31,6 +31,18 @@
             ],
             "@utils/*": [
                 "./src/utils/*.ts"
+            ],
+            "@resolvers/*": [
+                "./src/resolvers/*.ts"
+            ],
+            "@middlewares/*": [
+                "./src/middlewares/*.ts",
+            ],
+            "@types-local/*": [
+                "./src/types/*.ts",
+            ],
+            "@server/*": [
+                "./src/server/*.ts"
             ]
         },
         "plugins": [

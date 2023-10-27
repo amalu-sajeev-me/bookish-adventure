@@ -86,6 +86,10 @@
   "_moduleAliases": {
     "@bin": "dist/bin",
     "@adapters": "dist/src/adapters",
-    "@utils": "dist/src/utils"
+    "@utils": "dist/src/utils",
+    "@resolvers": "dist/src/resolvers",
+    "@middlewares": "dist/src/middlewares",
+    "@types-local": "dist/src/types",
+    "@server": "dist/src/server"
   }
 }

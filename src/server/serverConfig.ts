@@ -1,7 +1,7 @@
 import { ApolloServerOptions } from "@apollo/server";
-import { resolvers } from "../resolvers";
+import { resolvers } from "@resolvers/index";
 import { buildSchema } from "type-graphql";
-import { IApolloContext } from "../types/ApolloContext.type";
+import { IApolloContext } from "@types-local/ApolloContext.type";
 
 type GQLSchema = Required<ApolloServerOptions<IApolloContext>>['schema'];
 
