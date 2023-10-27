@@ -10,7 +10,7 @@
         "forceConsistentCasingInFileNames": true,
         "baseUrl": "./",
         "outDir": "./dist",
-        "esModuleInterop": false,
+        "esModuleInterop": true,
         "skipLibCheck": true,
         "target": "es2022",
         "resolveJsonModule": true,
